@@ -13,14 +13,50 @@ from keras.models import model_from_json
 data = []
 labels = []
 
-# creating dataset for paper images
-papers = os.listdir("ML-trash-images/paper")
-for paper in papers:
-    imag = cv2.imread("ML-trash-images/paper"+paper)
+# creating dataset for crumpled paper images
+crumpled_papers = os.listdir("ML-trash-images/paper/crumpled_paper")
+for paper in crumpled_papers:
+    imag = cv2.imread("ML-trash-images/paper/crumpled_paper"+paper)
     img_from_ar = Image.fromarray(imag, 'RGB')
     resized_image = img_from_ar.resize((50, 50))
     data.append(np.array(resized_image))
     labels.append(0)
+
+# creating dataset for paper cardboard images
+cardboards = os.listdir("ML-trash-images/paper/cardboard")
+for cardboard in cardboards:
+    imag = cv2.imread("ML-trash-images/paper/cardboard"+cardboard)
+    img_from_ar = Image.fromarray(imag, 'RGB')
+    resized_image = img_from_ar.resize((50, 50))
+    data.append(np.array(resized_image))
+    labels.append(1)
+
+# creating dataset for glass bottles images
+bottles = os.listdir("ML-trash-images/paper/bottles")
+for bottle in bottles:
+    imag = cv2.imread("ML-trash-images/paper/bottles"+bottle)
+    img_from_ar = Image.fromarray(imag, 'RGB')
+    resized_image = img_from_ar.resize((50, 50))
+    data.append(np.array(resized_image))
+    labels.append(2)
+
+# creating dataset for glass shards images
+glass_shards = os.listdir("ML-trash-images/paper/glass_shards")
+for shard in glass_shards:
+    imag = cv2.imread("ML-trash-images/paper/glass_shards"+shard)
+    img_from_ar = Image.fromarray(imag, 'RGB')
+    resized_image = img_from_ar.resize((50, 50))
+    data.append(np.array(resized_image))
+    labels.append(3)
+
+# creating dataset for aluminum cans images
+cans = os.listdir("ML-trash-images/paper/cans")
+for can in cans:
+    imag = cv2.imread("ML-trash-images/paper/cans"+can)
+    img_from_ar = Image.fromarray(imag, 'RGB')
+    resized_image = img_from_ar.resize((50, 50))
+    data.append(np.array(resized_image))
+    labels.append(4)
 
 # creating dataset for plastic images
 plastics = os.listdir("ML-trash-images/plastic")
